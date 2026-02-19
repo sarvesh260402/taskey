@@ -54,7 +54,10 @@ export function Sidebar({ isOpen, setIsOpen }: { isOpen: boolean, setIsOpen: (va
             {/* Mobile close button */}
             <button
                 onClick={() => setIsOpen(false)}
-                className="md:hidden absolute -right-10 top-4 p-2 bg-primary text-primary-foreground rounded-r-lg shadow-lg"
+                className={cn(
+                    "md:hidden absolute -right-10 top-4 p-2 bg-primary text-primary-foreground rounded-r-lg shadow-lg transition-opacity duration-300",
+                    isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+                )}
             >
                 <ChevronLeft size={20} />
             </button>
