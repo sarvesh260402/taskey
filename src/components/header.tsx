@@ -292,49 +292,50 @@ export function Header({ onMenuClick }: { onMenuClick: () => void }) {
                                     </div>
                                 )}
                             </div>
+                        </>
                     )}
-                        </div>
-
-                    <div className="h-8 w-[1px] bg-border mx-2"></div>
-
-                    <div className="relative">
-                        <button
-                            onClick={() => setDropdownOpen(!dropdownOpen)}
-                            className="flex items-center gap-3 p-1 pl-2 rounded-full hover:bg-secondary transition-colors group"
-                        >
-                            <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary/20 transition-colors">
-                                <UserIcon size={18} />
-                            </div>
-                            <div className="hidden md:block text-left">
-                                <p className="text-xs font-semibold leading-none">{user.name}</p>
-                                <p className="text-[10px] text-muted-foreground uppercase tracking-wider font-bold">{user.role}</p>
-                            </div>
-                            <ChevronDown size={14} className={`text-muted-foreground transition-transform duration-200 ${dropdownOpen ? 'rotate-180' : ''}`} />
-                        </button>
-
-                        {dropdownOpen && (
-                            <>
-                                <div
-                                    className="fixed inset-0 z-40 bg-transparent"
-                                    onClick={() => setDropdownOpen(false)}
-                                ></div>
-                                <div className="absolute top-full right-0 mt-2 w-48 bg-card border rounded-xl shadow-2xl z-50 py-2 animate-in fade-in zoom-in slide-in-from-top-2 duration-200">
-                                    <div className="px-4 py-2 border-b mb-1 md:hidden">
-                                        <p className="text-sm font-bold">{user.name}</p>
-                                        <p className="text-[10px] text-muted-foreground uppercase">{user.role}</p>
-                                    </div>
-                                    <button
-                                        onClick={handleLogout}
-                                        className="w-full flex items-center gap-3 px-4 py-2 text-sm text-destructive hover:bg-destructive/10 transition-colors font-semibold"
-                                    >
-                                        <LogOut size={16} />
-                                        Sign Out
-                                    </button>
-                                </div>
-                            </>
-                        )}
-                    </div>
                 </div>
+
+                <div className="h-8 w-[1px] bg-border mx-2"></div>
+
+                <div className="relative">
+                    <button
+                        onClick={() => setDropdownOpen(!dropdownOpen)}
+                        className="flex items-center gap-3 p-1 pl-2 rounded-full hover:bg-secondary transition-colors group"
+                    >
+                        <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary/20 transition-colors">
+                            <UserIcon size={18} />
+                        </div>
+                        <div className="hidden md:block text-left">
+                            <p className="text-xs font-semibold leading-none">{user.name}</p>
+                            <p className="text-[10px] text-muted-foreground uppercase tracking-wider font-bold">{user.role}</p>
+                        </div>
+                        <ChevronDown size={14} className={`text-muted-foreground transition-transform duration-200 ${dropdownOpen ? 'rotate-180' : ''}`} />
+                    </button>
+
+                    {dropdownOpen && (
+                        <>
+                            <div
+                                className="fixed inset-0 z-40 bg-transparent"
+                                onClick={() => setDropdownOpen(false)}
+                            ></div>
+                            <div className="absolute top-full right-0 mt-2 w-48 bg-card border rounded-xl shadow-2xl z-50 py-2 animate-in fade-in zoom-in slide-in-from-top-2 duration-200">
+                                <div className="px-4 py-2 border-b mb-1 md:hidden">
+                                    <p className="text-sm font-bold">{user.name}</p>
+                                    <p className="text-[10px] text-muted-foreground uppercase">{user.role}</p>
+                                </div>
+                                <button
+                                    onClick={handleLogout}
+                                    className="w-full flex items-center gap-3 px-4 py-2 text-sm text-destructive hover:bg-destructive/10 transition-colors font-semibold"
+                                >
+                                    <LogOut size={16} />
+                                    Sign Out
+                                </button>
+                            </div>
+                        </>
+                    )}
+                </div>
+            </div>
         </header>
     );
 }
