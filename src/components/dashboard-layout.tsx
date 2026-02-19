@@ -8,11 +8,11 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return (
-    <div className="flex h-screen bg-background transition-colors duration-300">
+    <div className="flex h-screen bg-background transition-colors duration-300 overflow-x-hidden">
       <Sidebar isOpen={isSidebarOpen} setIsOpen={setIsSidebarOpen} />
       <div className="flex-1 flex flex-col min-w-0 relative">
         <Header onMenuClick={() => setIsSidebarOpen(true)} />
-        <main className="flex-1 overflow-y-auto pt-16 px-4 md:px-6 pb-8 transition-all duration-300 md:ml-[var(--sidebar-width,256px)]">
+        <main className="flex-1 overflow-y-auto overflow-x-hidden pt-16 px-4 md:px-6 pb-8 transition-all duration-300 md:ml-[var(--sidebar-width,256px)]">
           <div className="max-w-7xl mx-auto pt-6">
             {children}
           </div>
